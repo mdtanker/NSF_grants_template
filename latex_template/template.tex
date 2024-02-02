@@ -1,0 +1,88 @@
+\documentclass[letterpaper,11pt]{article} % defaults to Computer Modern font
+\usepackage{hyperref}
+\usepackage{datetime}
+\usepackage{graphicx}
+\usepackage[natbib,style=apa,backend=biber,backref=true,sorting=nty,uniquelist=false,uniquename=false,maxcitenames=2,maxbibnames=99]{biblatex}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+% make figure captions small and bold
+\usepackage[font={footnotesize}, labelfont=bf]{caption}
+\usepackage{lineno}
+
+% \usepackage{titling}
+% \pretitle{\begin{center}\bfseries\Large}%
+% \posttitle{\end{center}}
+% \posttitle{\par\end{center}}
+% \vskip -4cm
+% \setlength{\droptitle}{-11ex}
+
+[# if options.page_numbers #]
+[# else #]
+\pagenumbering{gobble}
+[# endif #]
+
+[# if options.line_numbers #]
+\linenumbers
+[# endif #]
+
+[# if options.number_sections #]
+[# else #]
+\makeatletter
+\renewcommand{\@seccntformat}[1]{}
+\makeatother
+[# endif #]
+
+\let\subsubsection\subsection
+\let\subsection\section
+\let\section\chapter
+% \setcounter{section}{1}
+% \renewcommand\thesection{\arabic{section}*10}
+% \counterwithout{section}{chapter}
+% \renewcommand*{\thesubsection}{\arabic{subsection}}
+% \renewcommand*{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
+% \renewcommand*{\paragraph}{\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
+
+
+[# if doc.bibliography #]
+\addbibresource{[- doc.bibliography | join(", ") -]}
+\AtBeginBibliography{\footnotesize}
+[# endif #]
+
+\AtBeginDocument{%
+    \setlength\intextsep{5pt}%
+    \setlength\textfloatsep{10pt}}
+
+[-IMPORTS-]
+
+% colors for hyperlinks
+\hypersetup{colorlinks=true, allcolors=blue}
+
+% Move title toward top of page
+\title{\vspace{-3em}[-doc.title-]}
+\author{\vspace{-5em}[-doc.authors|join(" \\and ", "name")-]}
+% Remove date
+\date{\vspace{-3em}}
+
+\begin{document}
+
+[# if options.remove_title #][# else #]\maketitle[# endif #]
+
+[# if parts.abstract #]\begin{abstract}[-parts.abstract-]\end{abstract}[# endif #]
+
+[# if options.link #]
+% Optional footnote with a link back to the online version of your article
+\newcommand{\documentnote}[1]{{%
+  \let\thempfn\relax% Remove footnote number printing mechanism
+  \footnotetext[0]{\emph{#1}}% Print footnote text
+}}
+\documentnote{Available online at:\\ \href{[-options.link-]}{[-options.link-]}}
+[# endif #]
+
+[-CONTENT-]
+
+[# if options.remove_bibliography #][# else #]
+[# if doc.bibliography #]\printbibliography[# endif #]
+[# endif #]
+
+
+\end{document}

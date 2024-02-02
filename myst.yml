@@ -1,0 +1,22 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  title: NSF Proposal Template
+  description: a github template repository for NSF proposals using MyST Markdown
+  keywords: []
+  authors: []
+  github: mdtanker/NSF_grants_template
+  # bibliography: []
+site:
+  template: book-theme
+  title: NSF Proposal Template
+  # options:
+  #   logo: site_logo.png
+  nav: []
+  actions:
+    - title: Learn More
+      url: https://mystmd.org/guide
+  projects:
+    - slug: proposal_md_files
+      path: proposal_md_files
+  domains: []

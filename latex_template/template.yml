@@ -1,0 +1,54 @@
+jtex: v1
+title: Plain LaTeX
+description: A minimal template that only uses vanilla LaTeX commands and environments
+version: 1.0.0
+license: MIT
+authors:
+  - name: Matt Tankersley
+    github: mdtanker
+
+parts:
+  - id: abstract
+    description: >
+      An abstract is a short summary of your research paper or report.
+doc:
+  - id: title
+    required: true
+  - id: authors
+  - id: date
+  - id: bibliography
+options:
+  - id: link
+    type: string
+    title: Footnote Link
+    description: >
+      This will add a footnote containing a link back to online version of your
+      article
+  - id: number_sections
+    description: Number sections of the article
+    type: boolean
+    default: true
+  - id: line_numbers
+    description: Add line numbers to the article
+    type: boolean
+    default: false
+  - id: page_numbers
+    description: Add page numbers to the article
+    type: boolean
+    default: true
+  - id: remove_title
+    description: Remove the title, author, and date from the document
+    type: boolean
+    default: false
+  - id: remove_bibliography
+    description: Remove the bibliography from the document
+    type: boolean
+    default: false
+
+files:
+  - template.tex
+packages:
+  - datetime
+  - graphicx
+  - hyperref
+  - natbib
