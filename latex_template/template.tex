@@ -2,7 +2,17 @@
 \usepackage{hyperref}
 \usepackage{datetime}
 \usepackage{graphicx}
-\usepackage[natbib,style=apa,backend=biber,backref=true,sorting=nty,uniquelist=false,uniquename=false,maxcitenames=2,maxbibnames=99]{biblatex}
+\usepackage[
+  natbib,
+  style=apa,
+  backend=biber,
+  backref=true,
+  sorting=nty,
+  uniquelist=false,
+  uniquename=false,
+  maxcitenames=2,
+  maxbibnames=99,
+]{biblatex}
 \usepackage{amssymb}
 \usepackage[margin=1in]{geometry}
 % make figure captions small and bold
@@ -32,16 +42,11 @@
 \makeatother
 [# endif #]
 
+[# if options.increase_section_levels #]
 \let\subsubsection\subsection
 \let\subsection\section
 \let\section\chapter
-% \setcounter{section}{1}
-% \renewcommand\thesection{\arabic{section}*10}
-% \counterwithout{section}{chapter}
-% \renewcommand*{\thesubsection}{\arabic{subsection}}
-% \renewcommand*{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
-% \renewcommand*{\paragraph}{\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
-
+[# endif #]
 
 [# if doc.bibliography #]
 \addbibresource{[- doc.bibliography | join(", ") -]}

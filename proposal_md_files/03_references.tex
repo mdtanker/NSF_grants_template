@@ -1,0 +1,25 @@
+\documentclass[letterpaper,11pt]{article} % defaults to Computer Modern font
+\usepackage{hyperref}
+\usepackage[
+  natbib,
+  style=apa,
+  backend=biber,
+  backref=true,
+  sorting=nty,
+  uniquelist=false,
+  uniquename=false,
+  maxcitenames=2,
+  maxbibnames=99,
+]{biblatex}
+\usepackage[margin=1in]{geometry}
+\pagenumbering{gobble}
+
+\addbibresource{example_bibliography.bib}
+% \AtBeginBibliography{\footnotesize}
+
+\begin{document}
+
+\nocite{*}
+\printbibliography
+
+\end{document}

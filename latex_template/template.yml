@@ -44,6 +44,10 @@ options:
     description: Remove the bibliography from the document
     type: boolean
     default: false
+  - id: increase_section_levels
+    description: Increase the number of section levels so that "#" is not a subsection
+    type: boolean
+    default: true
 
 files:
   - template.tex
