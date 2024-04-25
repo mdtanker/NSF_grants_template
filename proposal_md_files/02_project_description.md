@@ -9,17 +9,17 @@ exports:
     - format: pdf
       template: ../latex_template
       output: ../proposal_output_files/project_description.pdf
-    #   number_sections: false
+      # number_sections: false
       line_numbers: false
       page_numbers: false
       # remove_title: true
       remove_bibliography: true
+      # increase_section_levels: false
 
 numbering:
   headings: true
 #   heading_2: true
 #   heading_3: true
-
 ---
 
 <!--
