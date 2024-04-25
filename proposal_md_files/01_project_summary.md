@@ -14,6 +14,7 @@ exports:
       page_numbers: false
       # remove_title: true
       remove_bibliography: true
+      # increase_section_levels: false
 
 numbering:
   headings: true
