@@ -1,5 +1,5 @@
 \documentclass[letterpaper,11pt]{article} % defaults to Computer Modern font
-\usepackage{hyperref}
+% \usepackage{hyperref}
 \usepackage{datetime}
 \usepackage{graphicx}
 \usepackage[
@@ -60,7 +60,7 @@
 [-IMPORTS-]
 
 % colors for hyperlinks
-\hypersetup{colorlinks=true, allcolors=blue}
+% \hypersetup{colorlinks=true, allcolors=blue}
 
 % Move title toward top of page
 \title{\vspace{-3em}[-doc.title-]}
@@ -86,7 +86,9 @@
 [-CONTENT-]
 
 [# if options.remove_bibliography #][# else #]
-[# if doc.bibliography #]\printbibliography[# endif #]
+[# if doc.bibliography #]
+\printbibliography
+[# endif #]
 [# endif #]
 
 
